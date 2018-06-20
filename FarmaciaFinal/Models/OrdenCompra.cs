@@ -9,14 +9,8 @@ namespace FarmaciaFinal.Models
 {
     public class OrdenCompra
     {
+        [Key]
         public int Id { get; set; }
-
-        [ForeignKey("Laboratorio_id")]
-        public Laboratorio Laboratorio { get; set; }
-
-        [Required]
-        [Display(Name = "Laboratorio")]
-        public int Laboratorio_id { get; set; }
 
         [Required]
         [Display(Name = "Fecha de orden")]

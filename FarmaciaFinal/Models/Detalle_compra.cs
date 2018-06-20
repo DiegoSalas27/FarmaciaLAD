@@ -9,6 +9,7 @@ namespace FarmaciaFinal.Models
 {
     public class Detalle_compra
     {
+        [Key]
         public int Id { get; set; }
 
         [ForeignKey("Producto_id")]

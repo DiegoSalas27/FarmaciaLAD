@@ -9,6 +9,7 @@ namespace FarmaciaFinal.Models
 {
     public class Detalle_venta
     {
+        [Key]
         public int Id { get; set; }
 
         [Required]
@@ -26,7 +27,7 @@ namespace FarmaciaFinal.Models
         [Display(Name = "Numero de orden")]
         public int Orden_id { get; set; }
 
-        [ForeignKey("Product_id")]
+        [ForeignKey("Producto_id")]
         public Producto Producto { get; set; }
 
         [Required]

@@ -9,13 +9,8 @@ namespace FarmaciaFinal.Models
 {
     public class Cliente
     {
+        [Key]
         public int Id { get; set; }
-
-        [ForeignKey("Rol_id")]
-        public Rol Rol { get; set; }
-
-        [Display(Name = "Tipo de usuario")]
-        public int Rol_id { get; set; }
 
         [Required]
         [StringLength(255)]
@@ -33,5 +28,7 @@ namespace FarmaciaFinal.Models
         public string Password { get; set; }
 
         public int Ruc { get; set; }
+
+        public int Puntaje { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -20,14 +21,44 @@ namespace FarmaciaFinal.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+
+
+        public DbSet<Categoria> Categorias { get; set; }
+
+        public DbSet<Cliente> Clientes { get; set; }
+
+        public DbSet<Detalle_compra> DetallesCompra { get; set; }
+
+        public DbSet<Detalle_venta> DetallesVenta { get; set; }
+
+        public DbSet<Laboratorio> Laboratorios { get; set; }
+
+        public DbSet<Marca> Marcas { get; set; }
+
+        public DbSet<OrdenCompra> OrdenesCompra { get; set; }
+
+        public DbSet<OrdenVenta> OrdenesVenta { get; set; }
+
+        public DbSet<Presentacion> Presentaciones { get; set; }
+
+        public DbSet<Producto> Productos { get; set; }
+
+
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("FarmaciasContext", throwIfV1Schema: false)
         {
         }
 
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
     }
 }
