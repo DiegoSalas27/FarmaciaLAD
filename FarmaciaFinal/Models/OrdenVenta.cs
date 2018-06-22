@@ -10,7 +10,7 @@ namespace FarmaciaFinal.Models
     public class OrdenVenta
     {
         [Key]
-        public int MyProperty { get; set; }
+        public int Id { get; set; }
 
         [ForeignKey("Cliente_id")]
         public Cliente Cliente { get; set; }

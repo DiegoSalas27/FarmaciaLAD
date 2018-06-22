@@ -27,9 +27,9 @@ namespace FarmaciaFinal.Models
 
         public DbSet<Cliente> Clientes { get; set; }
 
-        public DbSet<Detalle_compra> DetallesCompra { get; set; }
+        public DbSet<DetalleCompra> DetallesCompra { get; set; }
 
-        public DbSet<Detalle_venta> DetallesVenta { get; set; }
+        public DbSet<DetalleVenta> DetallesVenta { get; set; }
 
         public DbSet<Laboratorio> Laboratorios { get; set; }
 

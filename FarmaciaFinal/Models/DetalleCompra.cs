@@ -7,25 +7,10 @@ using System.Web;
 
 namespace FarmaciaFinal.Models
 {
-    public class Detalle_venta
+    public class DetalleCompra
     {
         [Key]
         public int Id { get; set; }
-
-        [Required]
-        [Range(1, 100)]
-        public int Cantidad { get; set; }
-
-        public decimal Precio_unitario { get; set; }
-
-        public decimal Subtotal { get; set; }
-
-        [ForeignKey("Orden_id")]
-        public OrdenVenta OrdenVenta { get; set; }
-
-        [Required]
-        [Display(Name = "Numero de orden")]
-        public int Orden_id { get; set; }
 
         [ForeignKey("Producto_id")]
         public Producto Producto { get; set; }
@@ -33,5 +18,18 @@ namespace FarmaciaFinal.Models
         [Required]
         [Display(Name = "Producto")]
         public int Producto_id { get; set; }
+
+        [ForeignKey("Compra_id")]
+        public OrdenCompra OrdenCompra { get; set; }
+
+        [Required]
+        [Display(Name = "Id de compra")]
+        public int Compra_id { get; set; }
+
+        public int Cantidad { get; set; }
+
+        public decimal Precio_unitario { get; set; }
+
+        public int Subtotal { get; set; }
     }
 }
