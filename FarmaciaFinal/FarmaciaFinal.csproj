@@ -196,8 +196,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ClientesController.cs" />
+    <Compile Include="Controllers\Detalle_ventasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OrdenVentasController.cs" />
+    <Compile Include="Controllers\ProductosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -263,6 +267,11 @@
     <Compile Include="Services\IProductoService.cs" />
     <Compile Include="Services\IService.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\BundleFormViewModel.cs" />
+    <Compile Include="ViewModels\ClienteFormViewModel.cs" />
+    <Compile Include="ViewModels\Detalle_ventaFormViewModel.cs" />
+    <Compile Include="ViewModels\OrdenVentaFormViewModel.cs" />
+    <Compile Include="ViewModels\ProductoFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
