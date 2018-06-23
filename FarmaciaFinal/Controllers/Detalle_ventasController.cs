@@ -24,7 +24,7 @@ namespace FarmaciaFinal.Controllers
 
         public ViewResult Index()
         {
-            var detalle_ventas = _context.Detalle_Ventas.ToList();
+            var detalle_ventas = _context.DetallesVenta.ToList();
 
             return View(detalle_ventas);
         }
@@ -32,7 +32,7 @@ namespace FarmaciaFinal.Controllers
         public ViewResult New()
         {
             var productos = _context.Productos.ToList();
-            var ordenes_venta = _context.OrdenVentas.ToList();
+            var ordenes_venta = _context.OrdenesVenta.ToList();
 
             var viewModel = new Detalle_ventaFormViewModel
             {
@@ -45,7 +45,7 @@ namespace FarmaciaFinal.Controllers
 
         public ActionResult Details(int id)
         {
-            var detalle_venta = _context.Detalle_Ventas.SingleOrDefault(m => m.Id == id);
+            var detalle_venta = _context.DetallesVenta.SingleOrDefault(m => m.Id == id);
 
             if (detalle_venta == null)
                 return HttpNotFound();
@@ -56,14 +56,14 @@ namespace FarmaciaFinal.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Save(Detalle_venta detalle_Venta)
+        public ActionResult Save(DetalleVenta detalle_Venta)
         {
             if (!ModelState.IsValid)
             {
                 var viewModel = new Detalle_ventaFormViewModel
                 {
                     Productos = _context.Productos.ToList(),
-                    OrdenesVenta = _context.OrdenVentas.ToList()
+                    OrdenesVenta = _context.OrdenesVenta.ToList()
                 };
 
                 return View("Detalle_ventaForm", viewModel);
@@ -71,7 +71,7 @@ namespace FarmaciaFinal.Controllers
 
             if (detalle_Venta.Id == 0)
             {
-                _context.Detalle_Ventas.Add(detalle_Venta);
+                _context.DetallesVenta.Add(detalle_Venta);
             }
             _context.SaveChanges();
 

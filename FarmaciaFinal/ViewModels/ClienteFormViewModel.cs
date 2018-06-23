@@ -9,8 +9,6 @@ namespace FarmaciaFinal.ViewModel
 {
     public class ClienteFormViewModel
     {
-        public IEnumerable<Rol> Roles { get; set; }
-
         public Cliente Cliente { get; set; }
 
         public int? Id { get; set; }
@@ -18,10 +16,6 @@ namespace FarmaciaFinal.ViewModel
         [Required]
         [StringLength(255)]
         public string Name { get; set; }
-
-        [Display(Name = "Rol")]
-        [Required]
-        public int? Rol_id { get; set; }
 
         [Required]
         public int? Telefono { get; set; }
@@ -60,7 +54,6 @@ namespace FarmaciaFinal.ViewModel
             Email = cliente.Email;
             Password = cliente.Password;
             Ruc = cliente.Ruc;
-            Rol_id = cliente.Rol_id;
         }
     }
 }

@@ -12,6 +12,6 @@ namespace FarmaciaFinal.ViewModel
 
         public IEnumerable<Producto> Productos { get; set; }
 
-        public Detalle_venta Detalle_Venta { get; set; }
+        public DetalleVenta Detalle_Venta { get; set; }
     }
 }

@@ -15,14 +15,14 @@ namespace FarmaciaFinal.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Somos una empresa que apunta a brindar el mejor servicio de delivery de medicamentos.";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Puede contactarse con nosotros por los siguientes medios:";
 
             return View();
         }

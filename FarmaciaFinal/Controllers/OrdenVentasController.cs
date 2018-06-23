@@ -24,7 +24,7 @@ namespace FarmaciaFinal.Controllers
 
         public ViewResult Index()
         {
-            var orden_ventas = _context.OrdenVentas.ToList();
+            var orden_ventas = _context.OrdenesVenta.ToList();
 
             return View(orden_ventas);
         }
@@ -43,7 +43,7 @@ namespace FarmaciaFinal.Controllers
 
         public ActionResult Details(int id)
         {
-            var orden_ventas = _context.OrdenVentas.SingleOrDefault(m => m.Id == id);
+            var orden_ventas = _context.OrdenesVenta.SingleOrDefault(m => m.Id == id);
 
             if (orden_ventas == null)
                 return HttpNotFound();
@@ -68,7 +68,7 @@ namespace FarmaciaFinal.Controllers
 
             if (orden_ventas.Id == 0)
             {
-                _context.OrdenVentas.Add(orden_ventas);
+                _context.OrdenesVenta.Add(orden_ventas);
             }
             _context.SaveChanges();
 

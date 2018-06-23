@@ -27,11 +27,12 @@ namespace FarmaciaFinal.Migrations
                         Email = c.String(nullable: false),
                         Password = c.String(nullable: false),
                         Ruc = c.Int(nullable: false),
+                        Puntaje = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.Detalle_compra",
+                "dbo.DetalleCompra",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
@@ -123,7 +124,7 @@ namespace FarmaciaFinal.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.Detalle_venta",
+                "dbo.DetalleVenta",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
@@ -143,7 +144,7 @@ namespace FarmaciaFinal.Migrations
                 "dbo.OrdenVenta",
                 c => new
                     {
-                        MyProperty = c.Int(nullable: false, identity: true),
+                        Id = c.Int(nullable: false, identity: true),
                         Cliente_id = c.Int(nullable: false),
                         FechaCompra = c.DateTime(nullable: false),
                         Subtotal = c.Decimal(nullable: false, precision: 18, scale: 2),
@@ -152,7 +153,7 @@ namespace FarmaciaFinal.Migrations
                         Delivery = c.String(nullable: false),
                         Estado = c.String(nullable: false),
                     })
-                .PrimaryKey(t => t.MyProperty)
+                .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Cliente", t => t.Cliente_id, cascadeDelete: true)
                 .Index(t => t.Cliente_id);
             
@@ -232,15 +233,15 @@ namespace FarmaciaFinal.Migrations
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
-            DropForeignKey("dbo.Detalle_venta", "Producto_id", "dbo.Producto");
-            DropForeignKey("dbo.Detalle_venta", "Orden_id", "dbo.OrdenVenta");
+            DropForeignKey("dbo.DetalleVenta", "Producto_id", "dbo.Producto");
+            DropForeignKey("dbo.DetalleVenta", "Orden_id", "dbo.OrdenVenta");
             DropForeignKey("dbo.OrdenVenta", "Cliente_id", "dbo.Cliente");
-            DropForeignKey("dbo.Detalle_compra", "Producto_id", "dbo.Producto");
+            DropForeignKey("dbo.DetalleCompra", "Producto_id", "dbo.Producto");
             DropForeignKey("dbo.Producto", "Presentacion_id", "dbo.Presentacion");
             DropForeignKey("dbo.Producto", "Marca_id", "dbo.Marca");
             DropForeignKey("dbo.Producto", "Laboratorio_id", "dbo.Laboratorio");
             DropForeignKey("dbo.Producto", "Categoria_id", "dbo.Categoria");
-            DropForeignKey("dbo.Detalle_compra", "Compra_id", "dbo.OrdenCompra");
+            DropForeignKey("dbo.DetalleCompra", "Compra_id", "dbo.OrdenCompra");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
@@ -248,27 +249,27 @@ namespace FarmaciaFinal.Migrations
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.OrdenVenta", new[] { "Cliente_id" });
-            DropIndex("dbo.Detalle_venta", new[] { "Producto_id" });
-            DropIndex("dbo.Detalle_venta", new[] { "Orden_id" });
+            DropIndex("dbo.DetalleVenta", new[] { "Producto_id" });
+            DropIndex("dbo.DetalleVenta", new[] { "Orden_id" });
             DropIndex("dbo.Producto", new[] { "Marca_id" });
             DropIndex("dbo.Producto", new[] { "Laboratorio_id" });
             DropIndex("dbo.Producto", new[] { "Presentacion_id" });
             DropIndex("dbo.Producto", new[] { "Categoria_id" });
-            DropIndex("dbo.Detalle_compra", new[] { "Compra_id" });
-            DropIndex("dbo.Detalle_compra", new[] { "Producto_id" });
+            DropIndex("dbo.DetalleCompra", new[] { "Compra_id" });
+            DropIndex("dbo.DetalleCompra", new[] { "Producto_id" });
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.OrdenVenta");
-            DropTable("dbo.Detalle_venta");
+            DropTable("dbo.DetalleVenta");
             DropTable("dbo.Presentacion");
             DropTable("dbo.Marca");
             DropTable("dbo.Laboratorio");
             DropTable("dbo.Producto");
             DropTable("dbo.OrdenCompra");
-            DropTable("dbo.Detalle_compra");
+            DropTable("dbo.DetalleCompra");
             DropTable("dbo.Cliente");
             DropTable("dbo.Categoria");
         }

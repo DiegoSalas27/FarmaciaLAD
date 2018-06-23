@@ -1,0 +1,61 @@
+﻿@model IEnumerable<FarmaciaFinal.Models.Producto>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-sm-3">
+
+            <h1 class="my-4">Filtrar por:</h1>
+            <div class="list-group">
+                <a href="#" class="list-group-item active">Categoría</a>
+                <a href="#" class="list-group-item">Marca</a>
+                <a href="#" class="list-group-item">Presentación</a>
+                <a href="#" class="list-group-item">Laboratorio</a>
+            </div>
+
+        </div>
+        <!-- /.col-lg-3 -->
+
+        <div class="col-sm-9">
+
+            <div class="row">
+                <br /><br />
+
+                @foreach (var producto in Model)
+                {
+                    <div class="col-sm-6">
+                        <div class="panel h-100">
+                            <a href="@Url.Action("Details", "Productos", new { id = producto.Id })">
+                                <img class="img-responsive" src="@Url.Content("~/Content/Images/mvll.jpg")" , alt="Edit", height="200", width="200" />
+                            </a>
+                            <div class="panel-body">
+                                <h4 class="panel-title">
+                                    @producto.Nombre
+                                </h4>
+                                <h5>$ @producto.Precio</h5>
+                                <h5>Stock: @producto.Stock</h5>
+                                <h5>@producto.Categoria.Nombre</h5>
+                            </div>
+                            <div class="panel-footer text-left">
+                                @Html.ActionLink("Añadir al carrito", "Carrito", "Clientes", new { id = producto.Id }, new { @class = "btn btn-primary" })
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+            <!-- /.row -->
+
+        </div>
+        <!-- /.col-lg-9 -->
+
+    </div>
+    <!-- /.row -->
+
+</div>
+<!-- /.container -->

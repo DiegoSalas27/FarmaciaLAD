@@ -13,7 +13,7 @@ namespace FarmaciaFinal.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201806200629320_Initial Migration"; }
+            get { return "201806230326034_InitialMigration"; }
         }
         
         string IMigrationMetadata.Source

@@ -1,0 +1,29 @@
+﻿@model  FarmaciaFinal.Models.Producto
+
+@{
+    ViewBag.Title = Model.Nombre;
+}
+
+<h2>@Model.Nombre</h2>
+<ul>
+    Precio: $ @Model.Precio
+    <br />
+    Composición: @Model.Composicion
+    <br />
+    Cantidad por unidad: $ @Model.Cantidad_por_unidad
+    <br />
+    Tipo de unidad de medida: @Model.Tipo_unidad_medida
+    <br />
+    Marca: @Model.Marca.Nombre
+    <br />
+    Categoría: @Model.Categoria.Nombre
+    <br />
+    Presentación: @Model.Presentacion.Nombre
+    <br />
+    Laboratorio: @Model.Laboratorio.Nombre
+    <br />
+    Stock: @Model.Stock
+    <br />
+
+    @Html.ActionLink("Añadir al carrito", "Details", "Productos", null, new { @class = "btn btn-primary" })
+</ul>

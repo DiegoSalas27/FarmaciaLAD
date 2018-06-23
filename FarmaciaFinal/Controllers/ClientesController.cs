@@ -25,11 +25,9 @@ namespace FarmaciaFinal.Controllers
 
         public ActionResult New()
         {
-            var roles = _context.Rols.ToList();
             var viewModel = new ClienteFormViewModel
             {
                 Cliente = new Cliente(),
-                Roles = roles
             };
 
             return View("ClienteForm", viewModel);
@@ -43,8 +41,7 @@ namespace FarmaciaFinal.Controllers
             {
                 var viewModel = new ClienteFormViewModel
                 {
-                    Cliente = cliente,
-                    Roles = _context.Rols.ToList()
+                    Cliente = cliente
                 };
 
                 return View("CustomerForm", viewModel);
@@ -70,14 +67,14 @@ namespace FarmaciaFinal.Controllers
         // GET: Clientes
         public ViewResult Index()
         {
-            var clientes = _context.Clientes.Include(c => c.Rol).ToList();
+            var clientes = _context.Clientes.ToList();
 
             return View(clientes);
         }
 
         public ActionResult Details(int id)
         {
-            var cliente = _context.Clientes.Include(c => c.Rol).SingleOrDefault(c => c.Id == id);
+            var cliente = _context.Clientes.SingleOrDefault(c => c.Id == id);
 
             if (cliente == null)
                 return HttpNotFound();
