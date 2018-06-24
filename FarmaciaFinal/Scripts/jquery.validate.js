@@ -516,7 +516,7 @@ $.extend( $.validator, {
 			if ( errors ) {
 				var validator = this;
 
-				// Add items to error list and map
+				// Add Productos to error list and map
 				$.extend( this.errorMap, errors );
 				this.errorList = $.map( this.errorMap, function( message, name ) {
 					return {
@@ -525,7 +525,7 @@ $.extend( $.validator, {
 					};
 				} );
 
-				// Remove items from success list
+				// Remove Productos from success list
 				this.successList = $.grep( this.successList, function( element ) {
 					return !( element.name in errors );
 				} );

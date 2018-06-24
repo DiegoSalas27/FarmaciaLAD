@@ -7,7 +7,7 @@ using System.Web;
 
 namespace FarmaciaFinal.Models
 {
-    public class DetalleVenta
+    public class DetalleVenta 
     {
         [Key]
         public int Id { get; set; }

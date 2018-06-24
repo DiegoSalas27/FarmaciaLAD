@@ -28,6 +28,15 @@ namespace FarmaciaFinal.Controllers
             SignInManager = signInManager;
         }
 
+        private void MigrateShoppingCart(string Email)
+        {
+            //asociamos los productos del carrito de compras con el usuario logeado
+            var cart = CarritoDeCompra.GetCart(this.HttpContext);
+
+            cart.MigrateCart(Email);
+            Session[CarritoDeCompra.CartSessionKey] = Email;
+        }
+
         public ApplicationSignInManager SignInManager
         {
             get
@@ -78,7 +87,9 @@ namespace FarmaciaFinal.Controllers
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
+                //Cuando el usuario haga log in automaticamente se le asigna un carrito de compras
                 case SignInStatus.Success:
+                    MigrateShoppingCart(model.Email);
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
@@ -156,7 +167,7 @@ namespace FarmaciaFinal.Controllers
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    MigrateShoppingCart(model.Email);
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);

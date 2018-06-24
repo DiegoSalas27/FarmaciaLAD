@@ -49,10 +49,8 @@ namespace FarmaciaFinal.Repositories.Implementation
             using (context = new ApplicationDbContext())
             {
                 var ordenVenta = context.OrdenesVenta.Where(x => x.Id == entity.Id).First();
-                ordenVenta.Cliente = entity.Cliente;
                 ordenVenta.FechaCompra = entity.FechaCompra;
                 ordenVenta.Delivery = entity.Delivery;
-                ordenVenta.Cliente = entity.Cliente;
                 ordenVenta.Estado = entity.Estado;
                 ordenVenta.IGV = entity.IGV;
                 ordenVenta.Subtotal = entity.Subtotal;

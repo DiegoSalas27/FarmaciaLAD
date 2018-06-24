@@ -6,11 +6,13 @@ using System.Web;
 
 namespace FarmaciaFinal.Models
 {
-    public class Categoria
+    public partial class Categoria
     {
         [Key]
         public int Id { get; set; }
         [Required]
         public string Nombre { get; set; }
+
+        public List<Producto> Productos { get; set; }
     }
 }

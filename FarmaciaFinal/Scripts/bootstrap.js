@@ -320,7 +320,7 @@ if (typeof jQuery === 'undefined') {
     this.sliding     = null
     this.interval    = null
     this.$active     = null
-    this.$items      = null
+    this.$Productos      = null
 
     this.options.keyboard && this.$element.on('keydown.bs.carousel', $.proxy(this.keydown, this))
 
@@ -363,31 +363,31 @@ if (typeof jQuery === 'undefined') {
     return this
   }
 
-  Carousel.prototype.getItemIndex = function (item) {
-    this.$items = item.parent().children('.item')
-    return this.$items.index(item || this.$active)
+  Carousel.prototype.getProductoIndex = function (Producto) {
+    this.$Productos = Producto.parent().children('.Producto')
+    return this.$Productos.index(Producto || this.$active)
   }
 
-  Carousel.prototype.getItemForDirection = function (direction, active) {
-    var activeIndex = this.getItemIndex(active)
+  Carousel.prototype.getProductoForDirection = function (direction, active) {
+    var activeIndex = this.getProductoIndex(active)
     var willWrap = (direction == 'prev' && activeIndex === 0)
-                || (direction == 'next' && activeIndex == (this.$items.length - 1))
+                || (direction == 'next' && activeIndex == (this.$Productos.length - 1))
     if (willWrap && !this.options.wrap) return active
     var delta = direction == 'prev' ? -1 : 1
-    var itemIndex = (activeIndex + delta) % this.$items.length
-    return this.$items.eq(itemIndex)
+    var ProductoIndex = (activeIndex + delta) % this.$Productos.length
+    return this.$Productos.eq(ProductoIndex)
   }
 
   Carousel.prototype.to = function (pos) {
     var that        = this
-    var activeIndex = this.getItemIndex(this.$active = this.$element.find('.item.active'))
+    var activeIndex = this.getProductoIndex(this.$active = this.$element.find('.Producto.active'))
 
-    if (pos > (this.$items.length - 1) || pos < 0) return
+    if (pos > (this.$Productos.length - 1) || pos < 0) return
 
     if (this.sliding)       return this.$element.one('slid.bs.carousel', function () { that.to(pos) }) // yes, "slid"
     if (activeIndex == pos) return this.pause().cycle()
 
-    return this.slide(pos > activeIndex ? 'next' : 'prev', this.$items.eq(pos))
+    return this.slide(pos > activeIndex ? 'next' : 'prev', this.$Productos.eq(pos))
   }
 
   Carousel.prototype.pause = function (e) {
@@ -414,8 +414,8 @@ if (typeof jQuery === 'undefined') {
   }
 
   Carousel.prototype.slide = function (type, next) {
-    var $active   = this.$element.find('.item.active')
-    var $next     = next || this.getItemForDirection(type, $active)
+    var $active   = this.$element.find('.Producto.active')
+    var $next     = next || this.getProductoForDirection(type, $active)
     var isCycling = this.interval
     var direction = type == 'next' ? 'left' : 'right'
     var that      = this
@@ -436,7 +436,7 @@ if (typeof jQuery === 'undefined') {
 
     if (this.$indicators.length) {
       this.$indicators.find('.active').removeClass('active')
-      var $nextIndicator = $(this.$indicators.children()[this.getItemIndex($next)])
+      var $nextIndicator = $(this.$indicators.children()[this.getProductoIndex($next)])
       $nextIndicator && $nextIndicator.addClass('active')
     }
 
@@ -860,17 +860,17 @@ if (typeof jQuery === 'undefined') {
     }
 
     var desc = ' li:not(.disabled):visible a'
-    var $items = $parent.find('.dropdown-menu' + desc)
+    var $Productos = $parent.find('.dropdown-menu' + desc)
 
-    if (!$items.length) return
+    if (!$Productos.length) return
 
-    var index = $items.index(e.target)
+    var index = $Productos.index(e.target)
 
     if (e.which == 38 && index > 0)                 index--         // up
-    if (e.which == 40 && index < $items.length - 1) index++         // down
+    if (e.which == 40 && index < $Productos.length - 1) index++         // down
     if (!~index)                                    index = 0
 
-    $items.eq(index).trigger('focus')
+    $Productos.eq(index).trigger('focus')
   }
 
 

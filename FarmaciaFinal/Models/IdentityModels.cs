@@ -25,8 +25,6 @@ namespace FarmaciaFinal.Models
 
         public DbSet<Categoria> Categorias { get; set; }
 
-        public DbSet<Cliente> Clientes { get; set; }
-
         public DbSet<DetalleCompra> DetallesCompra { get; set; }
 
         public DbSet<DetalleVenta> DetallesVenta { get; set; }
@@ -42,6 +40,8 @@ namespace FarmaciaFinal.Models
         public DbSet<Presentacion> Presentaciones { get; set; }
 
         public DbSet<Producto> Productos { get; set; }
+
+        public DbSet<Carrito> Carritos { get; set; }
 
 
         public ApplicationDbContext()

@@ -418,7 +418,7 @@ jQuery.extend( {
 			length = elems.length,
 			callbackExpect = !invert;
 
-		// Go through the array, only saving the items
+		// Go through the array, only saving the Productos
 		// that pass the validator function
 		for ( ; i < length; i++ ) {
 			callbackInverse = !callback( elems[ i ], i );
@@ -436,7 +436,7 @@ jQuery.extend( {
 			i = 0,
 			ret = [];
 
-		// Go through the array, translating each of the items to their new values
+		// Go through the array, translating each of the Productos to their new values
 		if ( isArrayLike( elems ) ) {
 			length = elems.length;
 			for ( ; i < length; i++ ) {
@@ -3854,7 +3854,7 @@ jQuery.extend( {
 	// Is the DOM ready to be used? Set to true once it occurs.
 	isReady: false,
 
-	// A counter to track how many items to wait for before
+	// A counter to track how many Productos to wait for before
 	// the ready event fires. See #6781
 	readyWait: 1,
 
@@ -5718,7 +5718,7 @@ function domManip( collection, args, callback, ignored ) {
 			scripts = jQuery.map( getAll( fragment, "script" ), disableScript );
 			hasScripts = scripts.length;
 
-			// Use the original fragment for the last item
+			// Use the original fragment for the last Producto
 			// instead of the first because it can end up
 			// being emptied incorrectly in certain situations (#8070).
 			for ( ; i < l; i++ ) {
@@ -8418,16 +8418,16 @@ function buildParams( prefix, obj, traditional, add ) {
 
 	if ( Array.isArray( obj ) ) {
 
-		// Serialize array item.
+		// Serialize array Producto.
 		jQuery.each( obj, function( i, v ) {
 			if ( traditional || rbracket.test( prefix ) ) {
 
-				// Treat each array item as a scalar.
+				// Treat each array Producto as a scalar.
 				add( prefix, v );
 
 			} else {
 
-				// Item is non-scalar (array or object), encode its numeric index.
+				// Producto is non-scalar (array or object), encode its numeric index.
 				buildParams(
 					prefix + "[" + ( typeof v === "object" && v != null ? i : "" ) + "]",
 					v,
@@ -8439,14 +8439,14 @@ function buildParams( prefix, obj, traditional, add ) {
 
 	} else if ( !traditional && toType( obj ) === "object" ) {
 
-		// Serialize object item.
+		// Serialize object Producto.
 		for ( name in obj ) {
 			buildParams( prefix + "[" + name + "]", obj[ name ], traditional, add );
 		}
 
 	} else {
 
-		// Serialize scalar item.
+		// Serialize scalar Producto.
 		add( prefix, obj );
 	}
 }

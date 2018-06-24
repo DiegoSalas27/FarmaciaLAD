@@ -4,26 +4,69 @@
     ViewBag.Title = Model.Nombre;
 }
 
-<h2>@Model.Nombre</h2>
-<ul>
-    Precio: $ @Model.Precio
-    <br />
-    Composición: @Model.Composicion
-    <br />
-    Cantidad por unidad: $ @Model.Cantidad_por_unidad
-    <br />
-    Tipo de unidad de medida: @Model.Tipo_unidad_medida
-    <br />
-    Marca: @Model.Marca.Nombre
-    <br />
-    Categoría: @Model.Categoria.Nombre
-    <br />
-    Presentación: @Model.Presentacion.Nombre
-    <br />
-    Laboratorio: @Model.Laboratorio.Nombre
-    <br />
-    Stock: @Model.Stock
-    <br />
+<h2>
+    @Model.Nombre
+</h2>
 
-    @Html.ActionLink("Añadir al carrito", "Details", "Productos", null, new { @class = "btn btn-primary" })
-</ul>
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-sm-3">
+
+            <div id="item-details">
+                <p>
+                    <em>Precio:</em>
+                    @String.Format("{0:F}",
+            Model.Precio)
+                </p>
+                <p>
+                    <em>Laboratorio:</em>
+                    @Model.Laboratorio.Nombre
+                </p>
+                <p>
+                    <em>Composición:</em>
+                    @Model.Composicion
+                </p>
+                <p>
+                    <em>Cantidad por unidad:</em>
+                    @Model.Cantidad_por_unidad
+                </p>
+                <p>
+                    <em>Tipo de unidad de medida:</em>
+                    @Model.Tipo_unidad_medida
+                </p>
+                <p>
+                    <em>Marca:</em>
+                    @Model.Marca.Nombre
+                </p>
+                <p>
+                    <em>Categoría:</em>
+                    @Model.Categoria.Nombre
+                </p>
+                <p>
+                    <em>Presentación:</em>
+                    @Model.Presentacion.Nombre
+                </p>
+                <p>
+                    <em>Stock:</em>
+                    @Model.Stock
+                </p>
+                <p class="button1">
+                    @Html.ActionLink("Añadir al carrito", "AddToCart", "CarritoDeCompras", new { id = Model.Id }, new { @class = "btn btn-primary" })
+                </p>
+                <div class="fb-comments" data-width="230" data-numposts="5"></div>
+            </div>
+
+        </div>
+
+            <div class="col-sm-9">
+
+                <img class="img-responsive" src="@Model.Image" , alt="Edit" , height="200" , width="200" />
+
+            </div>
+
+        </div>
+
+</div>
+

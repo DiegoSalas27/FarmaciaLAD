@@ -31,7 +31,7 @@
                     <div class="col-sm-6">
                         <div class="panel h-100">
                             <a href="@Url.Action("Details", "Productos", new { id = producto.Id })">
-                                <img class="img-responsive" src="@Url.Content("~/Content/Images/mvll.jpg")" , alt="Edit", height="200", width="200" />
+                                <img class="img-responsive" src="@Url.Content(producto.Image)" , alt="Edit", height="200", width="200" />
                             </a>
                             <div class="panel-body">
                                 <h4 class="panel-title">
@@ -42,7 +42,7 @@
                                 <h5>@producto.Categoria.Nombre</h5>
                             </div>
                             <div class="panel-footer text-left">
-                                @Html.ActionLink("Añadir al carrito", "Carrito", "Clientes", new { id = producto.Id }, new { @class = "btn btn-primary" })
+                                @Html.ActionLink("Añadir al carrito", "AddToCart", "CarritoDeCompras", new { id = producto.Id }, new { @class = "btn btn-primary" })
                             </div>
                         </div>
                     </div>
