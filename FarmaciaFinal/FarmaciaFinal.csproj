@@ -204,25 +204,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806230326034_InitialMigration.cs" />
-    <Compile Include="Migrations\201806230326034_InitialMigration.Designer.cs">
-      <DependentUpon>201806230326034_InitialMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201806240228399_UpdatedModel.cs" />
+    <Compile Include="Migrations\201806240228399_UpdatedModel.Designer.cs">
+      <DependentUpon>201806240228399_UpdatedModel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806232245419_Test.cs" />
-    <Compile Include="Migrations\201806232245419_Test.Designer.cs">
-      <DependentUpon>201806232245419_Test.cs</DependentUpon>
+    <Compile Include="Migrations\201806240241326_OrderUpdate.cs" />
+    <Compile Include="Migrations\201806240241326_OrderUpdate.Designer.cs">
+      <DependentUpon>201806240241326_OrderUpdate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806232303174_FixedModels.cs" />
-    <Compile Include="Migrations\201806232303174_FixedModels.Designer.cs">
-      <DependentUpon>201806232303174_FixedModels.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806232345004_addedShoppingCart.cs" />
-    <Compile Include="Migrations\201806232345004_addedShoppingCart.Designer.cs">
-      <DependentUpon>201806232345004_addedShoppingCart.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806232347266_addShoppingCart.cs" />
-    <Compile Include="Migrations\201806232347266_addShoppingCart.Designer.cs">
-      <DependentUpon>201806232347266_addShoppingCart.cs</DependentUpon>
+    <Compile Include="Migrations\201806240245479_OrdenVentaFixed.cs" />
+    <Compile Include="Migrations\201806240245479_OrdenVentaFixed.Designer.cs">
+      <DependentUpon>201806240245479_OrdenVentaFixed.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -300,12 +292,17 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\action.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
@@ -315,7 +312,11 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <None Include="Scripts\_references.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -377,20 +378,14 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201806230326034_InitialMigration.resx">
-      <DependentUpon>201806230326034_InitialMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201806240228399_UpdatedModel.resx">
+      <DependentUpon>201806240228399_UpdatedModel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806232245419_Test.resx">
-      <DependentUpon>201806232245419_Test.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201806240241326_OrderUpdate.resx">
+      <DependentUpon>201806240241326_OrderUpdate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806232303174_FixedModels.resx">
-      <DependentUpon>201806232303174_FixedModels.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806232345004_addedShoppingCart.resx">
-      <DependentUpon>201806232345004_addedShoppingCart.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806232347266_addShoppingCart.resx">
-      <DependentUpon>201806232347266_addShoppingCart.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201806240245479_OrdenVentaFixed.resx">
+      <DependentUpon>201806240245479_OrdenVentaFixed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

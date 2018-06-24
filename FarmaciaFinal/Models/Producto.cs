@@ -4,12 +4,15 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace FarmaciaFinal.Models
 {
+    [Bind(Exclude ="Id")]
     public class Producto
     {
-        [Key]
+
+        [ScaffoldColumn(false)]
         public int Id { get; set; }
 
         [Required]

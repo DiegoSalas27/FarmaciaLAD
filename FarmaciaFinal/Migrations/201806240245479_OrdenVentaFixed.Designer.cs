@@ -7,13 +7,13 @@ namespace FarmaciaFinal.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class FixedModels : IMigrationMetadata
+    public sealed partial class OrdenVentaFixed : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(FixedModels));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(OrdenVentaFixed));
         
         string IMigrationMetadata.Id
         {
-            get { return "201806232303174_FixedModels"; }
+            get { return "201806240245479_OrdenVentaFixed"; }
         }
         
         string IMigrationMetadata.Source

@@ -10,14 +10,8 @@ namespace FarmaciaFinal.Controllers
     [Authorize]
     public class CheckoutController : Controller
     {
-        ApplicationDbContext _context;
-
-        public CheckoutController()
-        {
-            _context = new ApplicationDbContext();
-        }
-
-        const string PromoCode = "FREE";
+        ApplicationDbContext storeDB = new ApplicationDbContext();
+        const string PromoCode = "50";
 
         public ActionResult AddressAndPayment()
         {
@@ -43,8 +37,8 @@ namespace FarmaciaFinal.Controllers
                     order.FechaCompra = DateTime.Now;
 
 
-                    _context.OrdenesVenta.Add(order);
-                    _context.SaveChanges();
+                    storeDB.OrdenesVenta.Add(order);
+                    storeDB.SaveChanges();
 
                     var cart = CarritoDeCompra.GetCart(this.HttpContext);
                     cart.CreateOrder(order);
@@ -63,7 +57,7 @@ namespace FarmaciaFinal.Controllers
         public ActionResult Complete(int id)
         {
 
-            bool isValid = _context.OrdenesVenta.Any(
+            bool isValid = storeDB.OrdenesVenta.Any(
                 o => o.Id == id &&
                 o.Username == User.Identity.Name);
 

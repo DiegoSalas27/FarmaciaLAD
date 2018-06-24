@@ -1,10 +1,24 @@
-﻿/*
+﻿/* NUGET: BEGIN LICENSE TEXT
+ *
+ * Microsoft grants you the right to use these script files for the sole
+ * purpose of either: (i) interacting through your browser with the Microsoft
+ * website or online service, subject to the applicable licensing or use
+ * terms; or (ii) using the files as included with a Microsoft product subject
+ * to that product's license terms. Microsoft reserves all other rights to the
+ * files not expressly granted by Microsoft, whether by implication, estoppel
+ * or otherwise. Insofar as a script file is dual licensed under GPL,
+ * Microsoft neither took the code under GPL nor distributes it thereunder but
+ * under the terms set out in this paragraph. All notices and licenses
+ * below are for informational purposes only.
+ *
+ * NUGET: END LICENSE TEXT */
+/*
 * This file has been commented to support Visual Studio Intellisense.
 * You should not use this file at runtime inside the browser--it is only
 * intended to be used only for design-time IntelliSense.  Please use the
 * standard jQuery library for all production use.
 *
-* Comment version: 1.17.0
+* Comment version: 1.11.1
 */
 
 /*
@@ -15,7 +29,7 @@
 * for informational purposes only and are not the license terms under
 * which Microsoft distributed this file.
 *
-* jQuery Validation Plugin - v1.17.0 - 12/5/2016
+* jQuery Validation Plugin - v1.11.1 - 2/4/2013
 * https://github.com/jzaefferer/jquery-validation
 * Copyright (c) 2013 Jörn Zaefferer; Licensed MIT
 *
@@ -438,7 +452,7 @@ $.extend($.validator, {
 			/// </param>
 
 			if(errors) {
-				// add Productos to error list and map
+				// add items to error list and map
 				$.extend( this.errorMap, errors );
 				this.errorList = [];
 				for ( var name in errors ) {
@@ -447,7 +461,7 @@ $.extend($.validator, {
 						element: this.findByName(name)[0]
 					});
 				}
-				// remove Productos from success list
+				// remove items from success list
 				this.successList = $.grep( this.successList, function(element) {
 					return !(element.name in errors);
 				});

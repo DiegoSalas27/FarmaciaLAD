@@ -5,12 +5,14 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace FarmaciaFinal.Models
 {
-    public class OrdenVenta
+    [Bind(Exclude = "Id")]
+    public partial class OrdenVenta
     {
-        [Key]
+        [ScaffoldColumn(false)]
         public int Id { get; set; }
 
         [ScaffoldColumn(false)]
@@ -50,21 +52,24 @@ namespace FarmaciaFinal.Models
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
-        [Required]
+        [ScaffoldColumn(false)]
         [Display(Name = "Fecha de compra")]
         public DateTime FechaCompra { get; set; }
 
+        [ScaffoldColumn(false)]
         public decimal Subtotal { get; set; }
 
+        [ScaffoldColumn(false)]
         public decimal IGV { get; set; }
 
+        [ScaffoldColumn(false)]
         [Range(1, 20)]
         public decimal  Total { get; set; }
 
-        [Required]
+        [ScaffoldColumn(false)]
         public string Delivery { get; set; }
 
-        [Required]
+        [ScaffoldColumn(false)]
         public string Estado { get; set; }
 
         public List<DetalleVenta> DetalleVentas { get; set; }
