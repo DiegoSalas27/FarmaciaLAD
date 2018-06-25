@@ -216,6 +216,14 @@
     <Compile Include="Migrations\201806240245479_OrdenVentaFixed.Designer.cs">
       <DependentUpon>201806240245479_OrdenVentaFixed.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806250213344_UpdatedModel1.cs" />
+    <Compile Include="Migrations\201806250213344_UpdatedModel1.Designer.cs">
+      <DependentUpon>201806250213344_UpdatedModel1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806250311406_updatedDatabase.cs" />
+    <Compile Include="Migrations\201806250311406_updatedDatabase.Designer.cs">
+      <DependentUpon>201806250311406_updatedDatabase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Carrito.cs" />
@@ -386,6 +394,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806240245479_OrdenVentaFixed.resx">
       <DependentUpon>201806240245479_OrdenVentaFixed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806250213344_UpdatedModel1.resx">
+      <DependentUpon>201806250213344_UpdatedModel1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806250311406_updatedDatabase.resx">
+      <DependentUpon>201806250311406_updatedDatabase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -6,7 +6,7 @@
     ViewBag.Title = "Address And Payment";
 }
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Save", "Checkout"))
 {
 
     <h2>Address And Payment</h2>
@@ -16,17 +16,7 @@
     </fieldset>
     <fieldset>
         <legend>Payment</legend>
-        <p>
-            We're running a promotion: all Products have 50% discount
-            with the promo code: "50"
-        </p>
-        <div class="editor-label">
-            @Html.Label("Promo Code")
-        </div>
-        <div class="editor-field">
-            @Html.TextBox("PromoCode")
-        </div>
     </fieldset>
 
-    <input type="submit" value="Submit Order" />
+    <button type="submit" class="btn btn-primary">Save</button>
 }

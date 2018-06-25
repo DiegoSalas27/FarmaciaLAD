@@ -25,5 +25,6 @@ namespace FarmaciaFinal.Models
         [Required]
         [Display(Name = "Costo de envio")]
         public decimal Costo_envio { get; set; }
+
     }
 }

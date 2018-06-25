@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FarmaciaFinal.Models;
+using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,8 +10,13 @@ namespace FarmaciaFinal.Controllers
 {
     public class HomeController : Controller
     {
+
+        public HomeController() { }
+
         public ActionResult Index()
         {
+            ViewBag.userid = User.Identity.GetUserId();
+
             return View();
         }
 

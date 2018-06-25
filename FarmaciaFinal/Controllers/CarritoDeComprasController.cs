@@ -18,17 +18,25 @@ namespace FarmaciaFinal.Controllers
         }
 
         // GET: CarritoDeCompras
-        public ActionResult Index()
+        public ActionResult Index(string name)
         {
-            var carrito = CarritoDeCompra.GetCart(this.HttpContext);
-
-            var viewModel = new CarritoDeCompraViewModel
+            if (name == null)
             {
-                CartItems = carrito.GetCartItmes(),
-                CartTotal = carrito.GetTotal()
-            };
+                return RedirectToAction("Index", "Home");
+            }
+            else {
 
-            return View(viewModel);
+                var carrito = CarritoDeCompra.GetCart(this.HttpContext);
+
+                var viewModel = new CarritoDeCompraViewModel
+                {
+                    CartItems = carrito.GetCartItmes(),
+                    CartTotal = carrito.GetTotal()
+                };
+
+                return View(viewModel);
+            }
+            
         }
 
         public ActionResult AddToCart(int id)

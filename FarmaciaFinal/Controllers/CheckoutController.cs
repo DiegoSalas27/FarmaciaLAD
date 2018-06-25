@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data.Entity;
 using System.Web.Mvc;
 
 namespace FarmaciaFinal.Controllers
@@ -11,7 +12,6 @@ namespace FarmaciaFinal.Controllers
     public class CheckoutController : Controller
     {
         ApplicationDbContext storeDB = new ApplicationDbContext();
-        const string PromoCode = "50";
 
         public ActionResult AddressAndPayment()
         {
@@ -19,39 +19,23 @@ namespace FarmaciaFinal.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddressAndPayment(FormCollection values)
+        public ActionResult Save(OrdenVenta ordenVenta)
         {
-            var order = new OrdenVenta();
-            TryUpdateModel(order);
 
-            try
-            {
-                if (string.Equals(values["PromoCode"], PromoCode,
-                    StringComparison.OrdinalIgnoreCase) == false)
-                {
-                    return View(order);
-                }
-                else
-                {
-                    order.Username = User.Identity.Name;
-                    order.FechaCompra = DateTime.Now;
+            ordenVenta.Username = User.Identity.Name;
+            ordenVenta.FechaCompra = DateTime.Now;
+            ordenVenta.Delivery = "Sí";
+            ordenVenta.Estado = "Procede";
+            ordenVenta.IGV = 0.18M;
 
+            storeDB.OrdenesVenta.Add(ordenVenta);
+            storeDB.SaveChanges();
 
-                    storeDB.OrdenesVenta.Add(order);
-                    storeDB.SaveChanges();
+            var cart = CarritoDeCompra.GetCart(this.HttpContext);
+            cart.CreateOrder(ordenVenta);
 
-                    var cart = CarritoDeCompra.GetCart(this.HttpContext);
-                    cart.CreateOrder(order);
-
-                    return RedirectToAction("Complete",
-                        new { id = order.Id });
-                }
-            }
-            catch
-            {
-
-                return View(order);
-            }
+            return RedirectToAction("Complete",
+                new { id = ordenVenta.Id });
         }
 
         public ActionResult Complete(int id)
