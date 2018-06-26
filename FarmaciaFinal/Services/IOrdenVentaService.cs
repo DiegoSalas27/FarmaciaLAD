@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FarmaciaFinal.Services
 {
-    public interface IOrdenVentaService : IService<OrdenVenta>
+    public interface ICarritoDeCompraservice : IService<OrdenVenta>
     {
     }
 }

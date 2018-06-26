@@ -15,7 +15,8 @@
                 <li>@Html.ActionLink("Productos", "Index", "Productos")</li>
                 <li>@Html.ActionLink("Quienes somos", "About", "Home")</li>
                 <li>@Html.ActionLink("Contáctanos", "Contact", "Home")</li>
-                <li>@Html.ActionLink("Carrito de compras", "Index", "CarritoDeCompras", new { name = @User.Identity.Name }, null)</li>
+                <li>@Html.ActionLink("Carrito de compras", "Index", "CarritoDeCompras")</li>
+                <li>@Html.ActionLink("Ordenes de venta", "Index", "OrdenVentas")</li>
             </ul>
             @Html.Partial("_LoginPartial")
         </div>

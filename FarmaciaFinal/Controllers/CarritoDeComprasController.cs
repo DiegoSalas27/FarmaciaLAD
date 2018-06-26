@@ -18,25 +18,17 @@ namespace FarmaciaFinal.Controllers
         }
 
         // GET: CarritoDeCompras
-        public ActionResult Index(string name)
+        public ActionResult Index()
         {
-            if (name == null)
+            var carrito = CarritoDeCompra.GetCart(this.HttpContext);
+
+            var viewModel = new CarritoDeCompraViewModel
             {
-                return RedirectToAction("Index", "Home");
-            }
-            else {
+                CartItems = carrito.GetCartItmes(),
+                CartTotal = carrito.GetTotal()
+            };
 
-                var carrito = CarritoDeCompra.GetCart(this.HttpContext);
-
-                var viewModel = new CarritoDeCompraViewModel
-                {
-                    CartItems = carrito.GetCartItmes(),
-                    CartTotal = carrito.GetTotal()
-                };
-
-                return View(viewModel);
-            }
-            
+            return View(viewModel);
         }
 
         public ActionResult AddToCart(int id)
@@ -78,5 +70,7 @@ namespace FarmaciaFinal.Controllers
             ViewData["CartCount"] = carrito.GetCount();
             return PartialView("CartSummary");
         }
+
+
     }
 }

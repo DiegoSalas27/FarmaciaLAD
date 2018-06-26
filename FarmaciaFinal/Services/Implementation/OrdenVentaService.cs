@@ -8,12 +8,12 @@ using FarmaciaFinal.Repositories.Implementation;
 
 namespace FarmaciaFinal.Services.Implementation
 {
-    public class OrdenVentaService : IOrdenVentaService
+    public class CarritoDeCompraservice : ICarritoDeCompraservice
     {
 
         IOrdenVentaRepository ordenRepo;
 
-        public OrdenVentaService()
+        public CarritoDeCompraservice()
         {
             ordenRepo = new OrdenVentaRepository();
         }
